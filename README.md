@@ -103,7 +103,6 @@ bot-sui/
 * `SUI_SERVER_NAME`
 * `SUI_SERVER_CODE`
 * `SUI_DEFAULT_INBOUNDS`
-Так-же изменить под себя текста, описание, приветствие.
 
 ## Systemd
 
