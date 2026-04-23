@@ -1,0 +1,16 @@
+[Unit]
+Description=Bot S-UI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/bot-sui
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/root/bot-sui/venv/bin/python /root/bot-sui/bot.py
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target
