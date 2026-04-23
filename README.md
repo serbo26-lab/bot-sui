@@ -139,6 +139,4 @@ systemctl stop bot-sui
 `Telegram bot for S-UI`
 ```
 
-::contentReference[oaicite:1]{index=1}
-
 [1]: https://github.com/serbo26-lab/bot-sui "GitHub - serbo26-lab/bot-sui · GitHub"
