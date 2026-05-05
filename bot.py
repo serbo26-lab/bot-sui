@@ -105,7 +105,7 @@ sui_cache_data: list[dict] | None = None
 sui_cache_ts: float = 0.0
 sui_cache_lock = asyncio.Lock()
 sui_refresh_lock = asyncio.Lock()
-APP_BUILD = "stage47_tariff_periods_hotfix10_antiabuse_runtime_cap_connect_button"
+APP_BUILD = "stage47_tariff_periods_hotfix11_sonar_prelaunch_safe"
 SUI_USER_AGENT = str(SUI_CONFIG.get("user_agent") or f"bot-sui/{APP_BUILD}").strip() or f"bot-sui/{APP_BUILD}"
 SUI_CLIENTS_CACHE_SECONDS = max(5, int(SUI_CONFIG.get("clients_cache_seconds") or 45))
 SUI_CLIENTS_STALE_CACHE_SECONDS = max(SUI_CLIENTS_CACHE_SECONDS, int(SUI_CONFIG.get("clients_stale_cache_seconds") or 300))
@@ -11105,12 +11105,9 @@ async def get_user_subscription_flags(user_id: int, *, force_refresh: bool = Fal
         desc = str(client.get("desc") or "")
         tgid = parse_tgid_from_desc(desc)
         tg_id_raw = str(client.get("tgId") or "")
-        tgid_match = False
-        if tgid is not None and int(tgid) == int(user_id):
-            tgid_match = True
-        elif tg_id_raw.isdigit() and int(tg_id_raw) == int(user_id):
-            tgid_match = True
-        if not tgid_match:
+        desc_tgid_matches = tgid is not None and int(tgid) == int(user_id)
+        raw_tgid_matches = tg_id_raw.isdigit() and int(tg_id_raw) == int(user_id)
+        if not (desc_tgid_matches or raw_tgid_matches):
             continue
 
         expiry = int(client.get("expiry") or 0)
@@ -20534,7 +20531,7 @@ def _migration_write_restore_files(staging: Path, manifest: dict) -> None:
     )
     restore_sh.chmod(0o700)
 
-def remote_migration_backup_make_archive() -> Path:
+def remote_migration_backup_make_archive() -> tuple[Path, str]:
     import tarfile
     import tempfile
     import shutil
@@ -25198,7 +25195,7 @@ async def main() -> None:
     try:
         await dp.start_polling(bot)
     except (KeyboardInterrupt, SystemExit):
-        pass
+        raise
     finally:
         write_health_snapshot(status="stopping")
         reminder_task.cancel()
@@ -25241,6 +25238,7 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
