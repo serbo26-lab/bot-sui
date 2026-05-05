@@ -1,0 +1,9 @@
+[Unit]
+Description=Bot S-UI monitor service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/bot-sui
+ExecStart=/opt/bot-sui/monitor.sh
+User=bot-sui
+Group=bot-sui

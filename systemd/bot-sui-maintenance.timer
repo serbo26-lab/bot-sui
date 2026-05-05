@@ -1,0 +1,11 @@
+[Unit]
+Description=Bot S-UI maintenance timer
+
+[Timer]
+# Daily storage hygiene: SQLite checkpoint/cleanup, backup/log/incident retention.
+OnCalendar=*-*-* 04:10:00
+RandomizedDelaySec=45min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
