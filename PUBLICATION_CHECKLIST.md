@@ -14,7 +14,7 @@
 - S-UI token;
 - Cloudflare token/global key;
 - SSH private keys;
-- сертификатов и private key;
+- `fullchain.pem`, `privkey.pem`;
 - реальных доменов проекта;
 - реальных IP серверов;
 - Telegram ID админов;
@@ -31,12 +31,26 @@
 
 ## Проверки кода перед публикацией
 
+Рекомендуемый минимум:
+
 ```bash
 python3 -m py_compile bot.py
 bash -n install.sh
-grep -R "REAL_TOKEN\|REAL_IP\|YOUR_REAL_DOMAIN" .
+grep -R "REAL_TOKEN\|REAL_IP\|REAL_DOMAIN" .
+```
+
+Если проект распространяется одним shell-файлом, проверьте:
+
+```bash
+bash -n Stable_*.sh
 ```
 
 ## Документация
 
-Проверьте, что README и docs не обещают готовый SaaS-продукт, используют `example.com`, не содержат внутренние реальные данные и объясняют, что S-UI/sing-box ставится заранее.
+Проверьте, что README и docs:
+
+- не обещают готовый SaaS-продукт;
+- используют `example.com` и placeholders;
+- не содержат внутренние пути с реальными доменами;
+- объясняют, что S-UI/sing-box ставится заранее;
+- содержат предупреждение про секреты и безопасность.

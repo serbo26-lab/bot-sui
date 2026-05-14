@@ -20,6 +20,12 @@
 - Remote sync и reconciliation.
 - Поддержка migration domain preview/apply.
 
+### MultiHop / Double VPN
+
+- Поддержка режимов, в которых трафик может идти цепочкой через основной сервер и второй endpoint.
+- Возможные схемы зависят от настройки S-UI/sing-box: main → remote node → internet, main → remote node → WARP, main → WARP endpoint.
+- Режим можно не использовать, если проекту достаточно обычных node-подписок.
+
 ### Antiabuse
 
 - Учет лимита устройств/IP.
@@ -43,3 +49,9 @@
 - S-UI остается источником сертификата.
 - Бот мониторит срок действия и копии на node.
 - Preview/apply миграции домена node и SNI.
+
+### Monitoring
+
+- Статистика пользователей и воронки.
+- Исключение админов из отчетов.
+- Production doctor с проверкой сертификатов.
