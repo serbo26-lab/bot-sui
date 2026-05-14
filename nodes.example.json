@@ -1,0 +1,45 @@
+{
+  "certificates": {
+    "source_cert": "/opt/bot-sui/certs/{domain}/fullchain.pem",
+    "source_key": "/opt/bot-sui/certs/{domain}/privkey.pem",
+    "remote_cert": "/root/cert-CF/{domain}/fullchain.pem",
+    "remote_key": "/root/cert-CF/{domain}/privkey.pem"
+  },
+  "nodes": [
+    {
+      "id": "node1",
+      "enabled": true,
+      "label": "🇳🇱 Netherlands",
+      "code": "NL",
+      "host": "203.0.113.10",
+      "domain": "node1.example.com",
+      "ssh_user": "root",
+      "ssh_key": "/opt/bot-sui/keys/nodes_ed25519",
+      "protocols": {
+        "vless": {
+          "enabled": true,
+          "port": 443,
+          "sni": "www.example.com",
+          "flow": "xtls-rprx-vision",
+          "fingerprint": "chrome",
+          "public_key": "PUT_REALITY_PUBLIC_KEY_HERE",
+          "private_key": "PUT_REALITY_PRIVATE_KEY_HERE",
+          "short_id": "PUT_SHORT_ID_HERE"
+        },
+        "hysteria2": {
+          "enabled": true,
+          "port": 443,
+          "sni": "node1.example.com",
+          "obfs_password": "PUT_OBFS_PASSWORD_HERE"
+        },
+        "tuic": {
+          "enabled": true,
+          "port": 8443,
+          "sni": "node1.example.com",
+          "congestion_control": "bbr"
+        }
+      },
+      "legacy_domains": []
+    }
+  ]
+}

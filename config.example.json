@@ -1,0 +1,64 @@
+{
+  "bot_token": "PUT_TELEGRAM_BOT_TOKEN_HERE",
+  "admin_ids": [
+    123456789
+  ],
+  "sui": {
+    "api_url": "https://panel.example.com/app/apiv2",
+    "token": "PUT_SUI_TOKEN_HERE",
+    "sub_url": "https://sub.example.com/",
+    "server_name": "🌐 Multi",
+    "server_code": "MAIN",
+    "default_inbounds": "1,2,3",
+    "user_agent": "bot-sui/production",
+    "clients_cache_seconds": 45,
+    "clients_stale_cache_seconds": 300
+  },
+  "paths": {
+    "base_dir": "/opt/bot-sui",
+    "database": "/opt/bot-sui/database.sqlite",
+    "logs_dir": "/opt/bot-sui/logs",
+    "health_file": "/opt/bot-sui/health.json"
+  },
+  "certificates": {
+    "domain": "example.com",
+    "source_cert": "/opt/bot-sui/certs/{domain}/fullchain.pem",
+    "source_key": "/opt/bot-sui/certs/{domain}/privkey.pem",
+    "remote_cert": "/root/cert-CF/{domain}/fullchain.pem",
+    "remote_key": "/root/cert-CF/{domain}/privkey.pem",
+    "auto_migrate_node_domains": true
+  },
+  "remote_nodes": {
+    "enabled": true,
+    "nodes_file": "/opt/bot-sui/nodes.json",
+    "sync_on_payment": true,
+    "sync_interval_seconds": 900,
+    "deploy_parallelism": 5,
+    "sync_debounce_seconds": 2,
+    "copy_certs_on_sync": true,
+    "open_firewall_on_sync": true,
+    "sing_box_version": "1.13.4"
+  },
+  "remote_antiabuse": {
+    "enabled": true,
+    "summary_poll_seconds": 300,
+    "active_ip_ttl_minutes": 10,
+    "auto_disable_enabled": false
+  },
+  "telegram_proxy": {
+    "enabled": true,
+    "mtg_version": "v2.2.8",
+    "default_port": 8443,
+    "auto_add_to_user_menu": true,
+    "auto_open_firewall": true
+  },
+  "payments": {
+    "pending_ttl_hours": 24
+  },
+  "referrals": {
+    "first_friend_discount_pct": 5,
+    "next_friend_discount_pct": 2.5,
+    "max_discount_pct": 50,
+    "require_success_payment": true
+  }
+}
