@@ -69,6 +69,7 @@ subscription links
 - [Конфигурация](docs/04-configuration.md)
 - [Пользовательские функции](docs/05-user-guide.md)
 - [Админ-панель](docs/06-admin-panel.md)
+- [Карта кнопок и функций](docs/23-button-and-function-map.md)
 - [Тарифы и периоды](docs/07-tariffs-and-periods.md)
 - [Платежи](docs/08-payments.md)
 - [Тестовый доступ](docs/09-trial-access.md)
