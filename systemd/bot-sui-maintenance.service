@@ -1,9 +1,0 @@
-[Unit]
-Description=Bot S-UI maintenance service
-
-[Service]
-Type=oneshot
-WorkingDirectory=/opt/bot-sui
-ExecStart=/opt/bot-sui/maintenance.sh
-User=bot-sui
-Group=bot-sui

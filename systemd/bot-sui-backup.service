@@ -1,9 +1,0 @@
-[Unit]
-Description=Bot S-UI backup service
-
-[Service]
-Type=oneshot
-WorkingDirectory=/opt/bot-sui
-ExecStart=/opt/bot-sui/backup.sh
-User=bot-sui
-Group=bot-sui
