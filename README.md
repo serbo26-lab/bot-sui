@@ -25,7 +25,3 @@
 - [Безопасность](docs/20-security.md)
 - [Troubleshooting](docs/21-troubleshooting.md)
 - [Development notes](docs/22-development-notes.md)
-
-## Важное предупреждение
-
-- Это информационный репозиторий.
